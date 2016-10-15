@@ -13,10 +13,6 @@ type Cmd struct {
 	Task func() Msg
 }
 
-type Sub struct {
-	Task func() Msg
-}
-
 type Init struct {
 	Model Model
 	Cmd   Cmd

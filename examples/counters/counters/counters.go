@@ -9,8 +9,8 @@ import (
 
 type (
 	Model struct {
-		CounterA counter.Model
-		CounterB counter.Model
+		CounterA tea.Model
+		CounterB tea.Model
 	}
 
 	CounterAMsg tea.Msg
@@ -26,23 +26,21 @@ func CounterB(msg tea.Msg) CounterBMsg {
 }
 
 func Init() tea.Init {
-	return tea.Init{Model: Model{0, 10}, Cmd: tea.Cmd{}}
+	return tea.Init{Model: Model{counter.Model(0), counter.Model(10)}, Cmd: tea.Cmd{}}
 }
 
 func Update(msg tea.Msg, model tea.Model) (tea.Model, tea.Cmd) {
-	m := model.(Model)
+	m, cmd := model.(Model), tea.Cmd{}
+
 	switch msg.(type) {
 	case CounterAMsg:
-		ma, cmd := counter.Update(msg, m.CounterA)
-		m.CounterA = ma.(counter.Model)
-		return m, cmd
+		m.CounterA, cmd = counter.Update(msg, m.CounterA)
 	case CounterBMsg:
-		mb, cmd := counter.Update(msg, m.CounterB)
-		m.CounterB = mb.(counter.Model)
-		return m, cmd
+		m.CounterB, cmd = counter.Update(msg, m.CounterB)
 	default:
-		return m, tea.Cmd{}
 	}
+
+	return m, cmd
 }
 
 func View(model tea.Model) string {

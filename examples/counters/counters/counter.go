@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/AlexanderChen1989/tea"
-	"github.com/AlexanderChen1989/tea/example/counter/counter"
+	"github.com/AlexanderChen1989/tea/examples/counter/counter"
 )
 
 type (

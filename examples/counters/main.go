@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/AlexanderChen1989/tea"
-	c "github.com/AlexanderChen1989/tea/example/counter/counter"
-	cs "github.com/AlexanderChen1989/tea/example/counters/counters"
+	c "github.com/AlexanderChen1989/tea/examples/counter/counter"
+	cs "github.com/AlexanderChen1989/tea/examples/counters/counters"
 )
 
 func main() {

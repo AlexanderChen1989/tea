@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	program, err := tea.NewProgram(cs.Init(), cs.Update, cs.View)
+	program, err := tea.NewProgram(cs.Init, cs.Update, cs.View)
 	if err != nil {
 		panic(err)
 	}

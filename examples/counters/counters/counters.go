@@ -17,16 +17,24 @@ type (
 	CounterBMsg tea.Msg
 )
 
-func CounterA(msg tea.Msg) CounterAMsg {
+func CounterA(msg tea.Msg) tea.Msg {
 	return CounterAMsg(msg)
 }
 
-func CounterB(msg tea.Msg) CounterBMsg {
+func CounterB(msg tea.Msg) tea.Msg {
 	return CounterBMsg(msg)
 }
 
-func Init() tea.Init {
-	return tea.Init{Model: Model{counter.Model(0), counter.Model(10)}, Cmd: tea.Cmd{}}
+func Init() (tea.Model, tea.Cmd) {
+	modelA, cmdA := counter.Init()
+	modelB, cmdB := counter.Init()
+
+	model := Model{modelA, modelB}
+	cmd := append(
+		tea.Tag(cmdA, CounterA),
+		tea.Tag(cmdB, CounterB)...,
+	)
+	return model, cmd
 }
 
 func Update(msg tea.Msg, model tea.Model) (tea.Model, tea.Cmd) {

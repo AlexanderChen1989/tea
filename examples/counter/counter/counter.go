@@ -13,16 +13,16 @@ type (
 	DecrMsg struct{}
 )
 
-func Incr() IncrMsg {
+func Incr() tea.Msg {
 	return IncrMsg{}
 }
 
-func Decr() DecrMsg {
+func Decr() tea.Msg {
 	return DecrMsg{}
 }
 
-func Init() tea.Init {
-	return tea.Init{Model: Model(10), Cmd: tea.Cmd{}}
+func Init() (tea.Model, tea.Cmd) {
+	return Model(10), tea.Cmd{}
 }
 
 func Update(msg tea.Msg, model tea.Model) (tea.Model, tea.Cmd) {

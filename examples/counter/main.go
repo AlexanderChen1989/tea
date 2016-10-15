@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	program, err := tea.NewProgram(Init(), Update, View)
+	program, err := tea.NewProgram(Init, Update, View)
 	if err != nil {
 		panic(err)
 	}

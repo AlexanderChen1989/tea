@@ -13,5 +13,13 @@ func New(name string, props Props, children ...Node) Node {
 }
 
 func Div(props Props, children ...Node) Node {
-	return New("div", props, children...)
+	return New("Div", props, children...)
+}
+
+func Network(props Props, children ...Node) Node {
+	return New("Network", props, children...)
+}
+
+func Container(props Props, children ...Node) Node {
+	return New("Container", props, children...)
 }

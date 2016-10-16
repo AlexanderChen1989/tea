@@ -1,15 +1,5 @@
 package main
 
-import (
-	"fmt"
-
-	. "github.com/AlexanderChen1989/tea/view"
-)
-
-const component = `
-  <App />
-`
-
 /*
 
 func User(name string, age int, num int = 10, children ...Node) Node {
@@ -39,9 +29,5 @@ func App() Node {
   )
 }
 
-*/
 
-func main() {
-	fmt.Println("Hello")
-	fmt.Printf("%+v\n", Div(nil, Div(nil, Div(nil))))
-}
+*/

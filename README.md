@@ -1,3 +1,5 @@
+# The Elm Architecture mimic
+
 ```gox
 type Msg enum {
 	None,

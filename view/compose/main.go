@@ -6,6 +6,10 @@ import (
 	. "github.com/AlexanderChen1989/tea/view"
 )
 
+const tree = `
+
+`
+
 func App(props Props, children ...Node) Node {
 	return Network(
 		Props{"name": "isolated_nw"},
